@@ -12,6 +12,7 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "dayjs": "^1.8.15",
     "sirv-cli": "^0.4.4"
   },
   "scripts": {
