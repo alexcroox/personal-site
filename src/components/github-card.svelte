@@ -11,10 +11,10 @@
   export let name
   export let fullName
   export let stars
-  export let updated
+  export let pushedAt
 
   let repoName = flat ? name : fullName
-  let updatedAgo = ago(new Date(updated))
+  let updatedAgo = ago(new Date(pushedAt))
 </script>
 
 <style>

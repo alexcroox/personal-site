@@ -31,7 +31,7 @@ const fetchUserGithubResource = async (resource, orderByUpdated = false) => {
       name,
       full_name: fullName,
       stargazers_count: stars,
-      updated_at: updated
+      pushed_at: pushedAt
     } = item
 
     data.push({
@@ -41,13 +41,13 @@ const fetchUserGithubResource = async (resource, orderByUpdated = false) => {
       name,
       fullName,
       stars,
-      updated
+      pushedAt
     })
   })
 
   // Order by updated, recent first
   if (orderByUpdated) {
-    data.sort((a, b) => (a.updated > b.updated ? -1 : b.updated > a.updated ? 1 : 0))
+    data.sort((a, b) => (a.pushedAt > b.pushedAt ? -1 : b.pushedAt > a.pushedAt ? 1 : 0))
   }
 
   return data
