@@ -9,6 +9,12 @@
     display: flex;
     min-height: 100%;
   }
+
+  @media (max-width: 700px) {
+    .app {
+      display: block;
+    }
+  }
 </style>
 
 <div class="app">

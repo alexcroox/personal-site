@@ -12,10 +12,14 @@
   }
 
   .avatar {
-    display: block;
-    width: 100%;
-    max-width: 100px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
     margin-bottom: 15px;
+    margin-right: 15px;
+    background: url('/images/avatar-placeholder.svg') no-repeat center center;
+    background-size: 100px 100px;
   }
 
   h1 {
@@ -71,20 +75,44 @@
     font-size: 1.4rem;
     color: #888;
   }
+
+  @media (max-width: 700px) {
+    .sidebar {
+      border-right: none;
+      border-bottom: 1px solid #e1e4e8;
+    }
+
+    .overview {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .skills {
+      margin-top: 12px;
+    }
+  }
 </style>
 
 <div class="sidebar">
-  <img src="/images/avatar.jpg" class="avatar" alt="Alex Crooks picture" />
+  <div class="user">
+    <img src="/images/avatar.jpg" class="avatar" alt="Alex Crooks picture" />
 
-  <h1>
-    <a class="link--plain" href="https://github.com/alexcroox" target="_blank" rel="noopener noreferrer">Alex Crooks</a>
-  </h1>
+    <div class="overview">
+      <h1>
+        <a class="link--plain" href="https://github.com/alexcroox" target="_blank" rel="noopener noreferrer">
+          Alex Crooks
+        </a>
+      </h1>
 
-  <p class="username">
-    <a class="link--plain" href="https://github.com/alexcroox" target="_blank" rel="noopener noreferrer">@alexcroox</a>
-  </p>
+      <p class="username">
+        <a class="link--plain" href="https://github.com/alexcroox" target="_blank" rel="noopener noreferrer">
+          @alexcroox
+        </a>
+      </p>
 
-  <p class="skills">Node / React / Vue.js / Svelte</p>
+      <p class="skills">Node / React / Vue.js / Svelte</p>
+    </div>
+  </div>
 
   <p class="location sidebar-item">
     <img src="/images/location.svg" width="16" alt="location" />

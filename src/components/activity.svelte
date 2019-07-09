@@ -49,6 +49,13 @@
     color: #24292e;
     font-weight: bold;
   }
+
+  @media (max-width: 700px) {
+    .activity {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
 </style>
 
 <div class="activity">

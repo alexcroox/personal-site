@@ -24,6 +24,10 @@
     margin-bottom: 15px;
   }
 
+  .details {
+    padding-right: 10px;
+  }
+
   .name {
     font-weight: bold;
     font-size: 1.6rem;
@@ -54,6 +58,12 @@
 
   .action {
     flex-shrink: 0;
+  }
+
+  @media (max-width: 700px) {
+    .action {
+      display: none;
+    }
   }
 </style>
 
