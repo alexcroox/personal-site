@@ -1,6 +1,7 @@
 <script>
   import ago from 's-ago'
   import Button from './button.svelte'
+  import Card from './card.svelte'
 
   export let flat = false
   export let noStar = false
@@ -21,21 +22,6 @@
     border-bottom: 1px solid #e1e4e8;
     padding-bottom: 15px;
     margin-bottom: 15px;
-  }
-
-  .github-card {
-    background-color: #fff;
-    border: 1px solid #d1d5da;
-    border-radius: 3px;
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .github-card.flat {
-    background-color: transparent;
-    border: none;
   }
 
   .name {
@@ -72,7 +58,7 @@
 </style>
 
 <div class="update">
-  <div class="github-card {!flat || 'flat'}">
+  <Card {flat}>
     <div class="details">
       <a href={htmlUrl} class="name {flat ? 'link' : 'link--plain'}" target="_blank" rel="noopener noreferrer">
          {repoName}
@@ -110,5 +96,5 @@
       </div>
     {/if}
 
-  </div>
+  </Card>
 </div>

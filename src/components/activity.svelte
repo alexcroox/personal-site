@@ -4,6 +4,7 @@
   import GitHubRepos from './activity-github-repos.svelte'
   import GitHubStars from './activity-github-stars.svelte'
   import TwitterFeed from './activity-twitter.svelte'
+  import Placeholder from './placeholder.svelte'
   import Chip from './chip.svelte'
   import fetchGitHub from '../lib/fetchGitHub'
 
@@ -15,8 +16,8 @@
 </script>
 
 <style>
-  .content {
-    padding: 16px;
+  .activity {
+    padding: 10px 16px;
     flex-grow: 1;
   }
 
@@ -50,7 +51,7 @@
   }
 </style>
 
-<div class="content">
+<div class="activity">
   <nav class="tabs" aria-label="Main Navigation">
     <a
       href="/"
@@ -69,15 +70,21 @@
     </a>
   </nav>
 
-  {#if activeTab === 'my-repos'}
-    <GitHubRepos />
-  {/if}
+  {#if $gitHubRepos.length}
+    {#if activeTab === 'my-repos'}
+      <GitHubRepos />
+    {/if}
 
-  {#if activeTab === 'my-stars'}
-    <GitHubStars />
-  {/if}
+    {#if activeTab === 'my-stars'}
+      <GitHubStars />
+    {/if}
 
-  {#if activeTab === 'twitter'}
-    <TwitterFeed />
+    {#if activeTab === 'twitter'}
+      <TwitterFeed />
+    {/if}
+  {:else}
+    {#each new Array(7) as item}
+      <Placeholder />
+    {/each}
   {/if}
 </div>
