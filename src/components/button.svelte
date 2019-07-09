@@ -1,3 +1,8 @@
+<script>
+  export let href
+  export let newTab
+</script>
+
 <style>
   .button {
     background-color: #eff3f6;
@@ -16,6 +21,7 @@
     white-space: nowrap;
     display: flex;
     align-items: center;
+    text-decoration: none;
   }
 
   .button:hover {
@@ -38,6 +44,6 @@
   }
 </style>
 
-<div class="button">
+<a {href} target={newTab ? '_blank' : ''} rel={newTab ? 'noopener noreferrer' : ''} class="button">
   <slot />
-</div>
+</a>

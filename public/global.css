@@ -18,3 +18,8 @@ body {
 .color--gray {
   color: #586069;
 }
+
+.link--plain {
+  text-decoration: none;
+  color: inherit;
+}

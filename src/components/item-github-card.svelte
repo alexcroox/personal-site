@@ -60,12 +60,16 @@
   .meta img {
     margin-right: 3px;
   }
+
+  .action {
+    flex-shrink: 0;
+  }
 </style>
 
 <div class="update">
   <div class="github-card">
     <div class="details">
-      <p class="name">{fullName}</p>
+      <a href={htmlUrl} class="name link--plain" target="_blank" rel="noopener noreferrer">{fullName}</a>
 
       {#if description}
         <p class="description color--gray">{description}</p>
@@ -90,9 +94,12 @@
       </div>
     </div>
 
-    <Button>
-      <img src="/images/star.svg" width="16" alt="star" />
-      Star
-    </Button>
+    <div class="action">
+      <Button href={htmlUrl} newTab="true">
+        <img src="/images/star.svg" width="16" alt="star" />
+        Star
+      </Button>
+    </div>
+
   </div>
 </div>
