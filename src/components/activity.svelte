@@ -41,7 +41,6 @@
     border-bottom-color: #d1d5da;
     color: #24292e;
     text-decoration: none;
-    transition: 0.2s ease;
   }
 
   .tabs a.active {

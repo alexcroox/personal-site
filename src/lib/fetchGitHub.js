@@ -15,7 +15,6 @@ const fetchUserGithubResource = async (resource, orderByUpdated = false) => {
   let response
 
   if (sessionStorage.getItem(resource)) {
-    console.log(`Loaded ${resource} from sessionStorage`)
     response = JSON.parse(sessionStorage.getItem(resource))
   } else {
     response = await fetch(`https://api.github.com/users/${resource}`)
