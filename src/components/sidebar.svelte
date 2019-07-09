@@ -1,3 +1,8 @@
+<script>
+  import dayjs from 'dayjs'
+  import Divider from './divider.svelte'
+</script>
+
 <style>
   .sidebar {
     background-color: #fff;
@@ -19,6 +24,11 @@
     font-weight: bold;
   }
 
+  h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
   .username {
     color: #666;
     font-size: 2rem;
@@ -30,21 +40,36 @@
   .skills {
     font-size: 1.4rem;
     margin-top: 20px;
+    margin-bottom: 20px;
   }
   .sidebar-item {
-    margin-top: 15px;
-    margin-top: 15px;
+    margin-top: 12px;
     display: flex;
     align-items: center;
   }
 
   .sidebar-item img {
-    margin-right: 5px;
+    margin-right: 10px;
   }
 
-  .sidebar-item a {
-    color: #0366d6;
-    text-decoration: none;
+  .company {
+    margin-top: 20px;
+  }
+
+  .company-name {
+    font-weight: bold;
+    display: block;
+  }
+
+  .company-role {
+    margin-top: 3px;
+    display: block;
+  }
+
+  .company-time {
+    display: block;
+    font-size: 1.4rem;
+    color: #888;
   }
 </style>
 
@@ -66,8 +91,47 @@
     Hampshire, UK
   </p>
 
-  <p class="mail sidebar-item">
-    <img src="/images/email.svg" width="15" alt="email" />
-    <a href="mailto:alexcrooks@gmail.com">alexcrooks@gmail.com</a>
+  <p class="sidebar-item">
+    <img src="/images/email.svg" width="16" alt="email" />
+    <a class="link" href="mailto:alexcrooks@gmail.com">alexcrooks@gmail.com</a>
+  </p>
+
+  <p class="sidebar-item">
+    <img src="/images/github.svg" width="16" alt="github" />
+    <a class="link" href="https://github.com/alexcroox" target="_blank" rel="noopener noreferrer">
+      github.com/alexcroox
+    </a>
+  </p>
+
+  <p class="sidebar-item">
+    <img src="/images/twitter.svg" width="16" alt="twitter" />
+    <a class="link" href="https://twitter.com/alexcroox" target="_blank" rel="noopener noreferrer">
+      twitter.com/alexcroox
+    </a>
+  </p>
+
+  <Divider />
+
+  <h3>Organizations</h3>
+
+  <p class="company">
+    <span class="company-name">Hectare Agritech</span>
+    <span class="company-role">Front End Lead Developer</span>
+    <span class="company-time">{dayjs().diff(dayjs('2019-05-01'), 'month')} months</span>
+  </p>
+
+  <p class="company">
+    <span class="company-name">Si digital</span>
+    <span class="company-role">Lead Developer</span>
+    <span class="company-time">10 years 5 months</span>
+  </p>
+
+  <Divider />
+
+  <p class="sidebar-item">
+    <img src="/images/github-full.svg" width="16" alt="github" />
+    <a class="link" href="https://github.com/alexcroox/personal-site" target="_blank" rel="noopener noreferrer">
+      This site is open source
+    </a>
   </p>
 </div>

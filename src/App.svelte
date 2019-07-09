@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte'
   import Sidebar from './components/sidebar.svelte'
-  import ActivityFeed from './components/activity-feed.svelte'
+  import Activity from './components/activity.svelte'
 </script>
 
 <style>
@@ -12,5 +12,5 @@
 
 <div class="app">
   <Sidebar />
-  <ActivityFeed />
+  <Activity />
 </div>

@@ -7,12 +7,14 @@
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-sizes": "^0.5.1",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^4.0.4",
     "svelte": "^3.0.0"
   },
   "dependencies": {
     "dayjs": "^1.8.15",
+    "s-ago": "^2.0.1",
     "sirv-cli": "^0.4.4"
   },
   "scripts": {

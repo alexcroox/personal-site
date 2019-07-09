@@ -19,6 +19,11 @@ body {
   color: #586069;
 }
 
+.link {
+  color: #0366d6;
+  text-decoration: none;
+}
+
 .link--plain {
   text-decoration: none;
   color: inherit;

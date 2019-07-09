@@ -1,7 +1,9 @@
 <script>
-  import dayjs from 'dayjs'
+  import ago from 's-ago'
   import Button from './button.svelte'
 
+  export let flat = false
+  export let noStar = false
   export let description
   export let htmlUrl
   export let language
@@ -10,10 +12,8 @@
   export let stars
   export let updated
 
-  updated = dayjs(updated)
-
-  const dateFormat = dayjs().isSame(updated, 'year') ? 'MMMM D' : 'MMMM D YYYY'
-  let updatedDate = updated.format(dateFormat)
+  let repoName = flat ? name : fullName
+  let updatedAgo = ago(new Date(updated))
 </script>
 
 <style>
@@ -31,6 +31,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .github-card.flat {
+    background-color: transparent;
+    border: none;
   }
 
   .name {
@@ -67,9 +72,11 @@
 </style>
 
 <div class="update">
-  <div class="github-card">
+  <div class="github-card {!flat || 'flat'}">
     <div class="details">
-      <a href={htmlUrl} class="name link--plain" target="_blank" rel="noopener noreferrer">{fullName}</a>
+      <a href={htmlUrl} class="name {flat ? 'link' : 'link--plain'}" target="_blank" rel="noopener noreferrer">
+         {repoName}
+      </a>
 
       {#if description}
         <p class="description color--gray">{description}</p>
@@ -90,16 +97,18 @@
           </span>
         {/if}
 
-        <span class="stars meta-item">Updated {updatedDate}</span>
+        <span class="stars meta-item">Updated {updatedAgo}</span>
       </div>
     </div>
 
-    <div class="action">
-      <Button href={htmlUrl} newTab="true">
-        <img src="/images/star.svg" width="16" alt="star" />
-        Star
-      </Button>
-    </div>
+    {#if !noStar}
+      <div class="action">
+        <Button href={htmlUrl} newTab="true">
+          <img src="/images/star.svg" width="16" alt="star" />
+          Star
+        </Button>
+      </div>
+    {/if}
 
   </div>
 </div>
