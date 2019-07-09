@@ -112,7 +112,7 @@
 
   <Divider />
 
-  <h3>Organizations</h3>
+  <h3>Organisations</h3>
 
   <p class="company">
     <span class="company-name">Hectare Agritech</span>
