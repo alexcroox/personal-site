@@ -8,16 +8,22 @@
   import Chip from './chip.svelte'
   import fetchGitHub from '../lib/fetchGitHub'
 
-  let activeTab = 'my-repos'
+  let route = window.location.pathname
 
   onMount(() => {
     fetchGitHub()
   })
+
+  const updateRoute = path => {
+    route = path
+    window.history.pushState(null, '', path)
+  }
 </script>
 
 <style>
   .activity {
     padding: 10px 16px;
+    flex-grow: 1;
   }
 
   .tabs {
@@ -58,40 +64,37 @@
 
 <div class="activity">
   <nav class="tabs" aria-label="Main Navigation">
-    <a
-      href="/"
-      on:click|preventDefault={() => (activeTab = 'my-repos')}
-      class="link--plain {activeTab !== 'my-repos' || 'active'}">
+    <a href="/" on:click|preventDefault={() => updateRoute('/')} class="link--plain {route !== '/' || 'active'}">
       My Repos
       <Chip>{$gitHubRepos.length}</Chip>
     </a>
 
     <a
       href="/"
-      on:click|preventDefault={() => (activeTab = 'my-stars')}
-      class="link--plain {activeTab !== 'my-stars' || 'active'}">
+      on:click|preventDefault={() => updateRoute('/stars')}
+      class="link--plain {route !== '/stars' || 'active'}">
       Starred
       <Chip>{$gitHubStars.length}</Chip>
     </a>
 
     <a
       href="/"
-      on:click|preventDefault={() => (activeTab = 'blog')}
-      class="link--plain {activeTab !== 'blog' || 'active'}">
+      on:click|preventDefault={() => updateRoute('/recent')}
+      class="link--plain {route !== '/recent' || 'active'}">
       Recent Work
     </a>
   </nav>
 
   {#if $gitHubRepos.length}
-    {#if activeTab === 'my-repos'}
+    {#if route === '/'}
       <GitHubRepos />
     {/if}
 
-    {#if activeTab === 'my-stars'}
+    {#if route === '/stars'}
       <GitHubStars />
     {/if}
 
-    {#if activeTab === 'blog'}
+    {#if route === '/recent'}
       <Blog />
     {/if}
   {:else}
