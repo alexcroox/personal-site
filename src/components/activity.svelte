@@ -3,6 +3,7 @@
   import { gitHubRepos, gitHubStars } from '../store'
   import GitHubRepos from './activity-github-repos.svelte'
   import GitHubStars from './activity-github-stars.svelte'
+  import Blog from './blog.svelte'
   import Placeholder from './placeholder.svelte'
   import Chip from './chip.svelte'
   import fetchGitHub from '../lib/fetchGitHub'
@@ -73,6 +74,13 @@
       Starred
       <Chip>{$gitHubStars.length}</Chip>
     </a>
+
+    <a
+      href="/"
+      on:click|preventDefault={() => (activeTab = 'blog')}
+      class="link--plain {activeTab !== 'blog' || 'active'}">
+      Working On
+    </a>
   </nav>
 
   {#if $gitHubRepos.length}
@@ -82,6 +90,10 @@
 
     {#if activeTab === 'my-stars'}
       <GitHubStars />
+    {/if}
+
+    {#if activeTab === 'blog'}
+      <Blog />
     {/if}
   {:else}
     {#each new Array(7) as item}

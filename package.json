@@ -16,7 +16,8 @@
   "dependencies": {
     "dayjs": "^1.8.15",
     "s-ago": "^2.0.1",
-    "sirv-cli": "^0.4.4"
+    "sirv-cli": "^0.4.4",
+    "snarkdown": "^1.2.2"
   },
   "scripts": {
     "build": "rollup -c",
