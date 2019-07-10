@@ -143,13 +143,17 @@
   <h3>Organisations</h3>
 
   <p class="company">
-    <span class="company-name">Hectare Agritech</span>
+    <a href="https://hectare.farm" target="_blank" rel="noopener noreferrer" class="company-name link--plain">
+      Hectare Agritech
+    </a>
     <span class="company-role">Front End Lead Developer</span>
     <span class="company-time">{dayjs().diff(dayjs('2019-05-01'), 'month')} months</span>
   </p>
 
   <p class="company">
-    <span class="company-name">Si digital</span>
+    <a href="https://sidigital.co" target="_blank" rel="noopener noreferrer" class="company-name link--plain">
+      Si digital
+    </a>
     <span class="company-role">Lead Developer</span>
     <span class="company-time">10 years 5 months</span>
   </p>
