@@ -3,7 +3,6 @@
   import { gitHubRepos, gitHubStars } from '../store'
   import GitHubRepos from './activity-github-repos.svelte'
   import GitHubStars from './activity-github-stars.svelte'
-  import TwitterFeed from './activity-twitter.svelte'
   import Placeholder from './placeholder.svelte'
   import Chip from './chip.svelte'
   import fetchGitHub from '../lib/fetchGitHub'
