@@ -38,7 +38,7 @@
 
 <style>
   .post-wrapper {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
 
   .created {
@@ -55,6 +55,13 @@
     margin-top: 10px;
   }
 
+  .post :global(img) {
+    border: 1px solid #d1d5da;
+    max-width: 100%;
+    margin: 15px 0;
+    display: block;
+  }
+
   .post :global(a) {
     color: #0366d6;
     text-decoration: underline;
@@ -65,8 +72,13 @@
     border-radius: 3px;
     font-size: 1.6rem;
     overflow: auto;
-    padding: 5px 10px;
+    padding: 0px 5px;
     display: inline-block;
+    vertical-align: middle;
+  }
+
+  .post :global(pre) {
+    margin: 20px 0;
   }
 </style>
 
@@ -77,7 +89,7 @@
 {:else}
   {#each posts as post}
     <div class="post-wrapper">
-      <Card>
+      <Card limitedWidth>
         <div class="post">
           <div class="created color--gray">{dayjs(post.created).format('MMMM YYYY')}</div>
           {@html marked(post.content)}

@@ -1,5 +1,6 @@
 <script>
   export let flat = false
+  export let limitedWidth = false
 </script>
 
 <style>
@@ -17,8 +18,12 @@
     background-color: transparent;
     border: none;
   }
+
+  .card.limited-width {
+    max-width: 770px;
+  }
 </style>
 
-<div class="card {!flat || 'flat'}">
+<div class="card {!flat || 'flat'} {!limitedWidth || 'limited-width'}">
   <slot />
 </div>
