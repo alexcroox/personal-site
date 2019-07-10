@@ -84,10 +84,6 @@
     {#if activeTab === 'my-stars'}
       <GitHubStars />
     {/if}
-
-    {#if activeTab === 'twitter'}
-      <TwitterFeed />
-    {/if}
   {:else}
     {#each new Array(7) as item}
       <Placeholder />

@@ -14,33 +14,26 @@ const fetchUserGithubResource = async (resource, orderByUpdated = false) => {
   let data = []
   let response
 
+  // Do we have anything in session storage yet?
   if (sessionStorage.getItem(resource)) {
     response = JSON.parse(sessionStorage.getItem(resource))
   } else {
     response = await fetch(`https://api.github.com/users/${resource}`)
     response = await response.json()
+
+    // Save to session storage, GitHub has 60 calls per hour limit
     sessionStorage.setItem(resource, JSON.stringify(response))
   }
 
   response.map(item => {
-    let {
-      description,
-      html_url: htmlUrl,
-      language,
-      name,
-      full_name: fullName,
-      stargazers_count: stars,
-      pushed_at: pushedAt
-    } = item
-
     data.push({
-      description,
-      htmlUrl,
-      language,
-      name,
-      fullName,
-      stars,
-      pushedAt
+      description: item.description,
+      htmlUrl: item.html_url,
+      language: item.language,
+      name: item.name,
+      fullName: item.full_name,
+      stars: item.stargazers_count,
+      pushedAt: item.pushed_at
     })
   })
 

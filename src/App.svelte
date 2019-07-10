@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte'
   import Sidebar from './components/sidebar.svelte'
   import Activity from './components/activity.svelte'
 </script>
