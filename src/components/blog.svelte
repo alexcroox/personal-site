@@ -28,6 +28,10 @@
 </script>
 
 <style>
+  .post-wrapper {
+    margin-bottom: 15px;
+  }
+
   .created {
     font-size: 1.3rem;
     margin-bottom: 5px;
@@ -53,10 +57,12 @@
 </style>
 
 {#each posts as post}
-  <Card>
-    <div class="post">
-      <div class="created color--gray">{dayjs(post.created).format('MMMM YYYY')}</div>
-      {@html snarkdown(post.content)}
-    </div>
-  </Card>
+  <div class="post-wrapper">
+    <Card>
+      <div class="post">
+        <div class="created color--gray">{dayjs(post.created).format('MMMM YYYY')}</div>
+        {@html snarkdown(post.content)}
+      </div>
+    </Card>
+  </div>
 {/each}
