@@ -18,7 +18,6 @@
 <style>
   .activity {
     padding: 10px 16px;
-    flex-grow: 1;
   }
 
   .tabs {
@@ -79,7 +78,7 @@
       href="/"
       on:click|preventDefault={() => (activeTab = 'blog')}
       class="link--plain {activeTab !== 'blog' || 'active'}">
-      Working On
+      Recent Work
     </a>
   </nav>
 

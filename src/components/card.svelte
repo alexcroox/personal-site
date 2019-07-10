@@ -1,6 +1,7 @@
 <script>
   export let flat = false
   export let limitedWidth = false
+  export let extraPadding = false
 </script>
 
 <style>
@@ -22,8 +23,12 @@
   .card.limited-width {
     max-width: 770px;
   }
+
+  .card.extra-padding {
+    padding: 25px;
+  }
 </style>
 
-<div class="card {!flat || 'flat'} {!limitedWidth || 'limited-width'}">
+<div class="card {!flat || 'flat'} {!limitedWidth || 'limited-width'} {!extraPadding || 'extra-padding'}">
   <slot />
 </div>

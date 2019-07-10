@@ -46,9 +46,21 @@
     margin-bottom: 5px;
   }
 
+  .post {
+    max-width: 100%;
+  }
+
   .post :global(h2) {
     font-weight: bold;
     margin-bottom: 15px;
+    font-size: 1.8rem;
+  }
+
+  .post :global(h3) {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
   }
 
   .post :global(p) {
@@ -79,6 +91,9 @@
 
   .post :global(pre) {
     margin: 20px 0;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }
 </style>
 
@@ -89,7 +104,7 @@
 {:else}
   {#each posts as post}
     <div class="post-wrapper">
-      <Card limitedWidth>
+      <Card limitedWidth extraPadding>
         <div class="post">
           <div class="created color--gray">{dayjs(post.created).format('MMMM YYYY')}</div>
           {@html marked(post.content)}
