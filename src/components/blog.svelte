@@ -55,6 +55,11 @@
     margin-top: 10px;
   }
 
+  .post :global(a) {
+    color: #0366d6;
+    text-decoration: underline;
+  }
+
   .post :global(code) {
     background-color: #f6f8fa;
     border-radius: 3px;
