@@ -27,7 +27,7 @@ const fetchUserGithubResource = async (resource, orderByUpdated = false) => {
 
   response.map(item => {
     data.push({
-      description: item.description,
+      description: item.description ? item.description.replace(/:[^ ]+:/g, '') : null,
       htmlUrl: item.html_url,
       language: item.language,
       name: item.name,
