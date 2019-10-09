@@ -120,8 +120,11 @@
   .post :global(pre) {
     margin: 20px 0;
     overflow: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+  }
+
+  .post :global(pre) :global(code) {
+    display: block;
+    font-size: 1.4rem;
   }
 </style>
 
