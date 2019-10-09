@@ -64,7 +64,17 @@
 
 <div class="activity">
   <nav class="tabs" aria-label="Main Navigation">
-    <a href="/" on:click|preventDefault={() => updateRoute('/')} class="link--plain {route !== '/' || 'active'}">
+    <a
+      href="/"
+      on:click|preventDefault={() => updateRoute('/')}
+      class="link--plain {(route !== '/' && !route.includes('/recent')) || 'active'}">
+      Recent Work
+    </a>
+
+    <a
+      href="/"
+      on:click|preventDefault={() => updateRoute('/repos')}
+      class="link--plain {route !== '/repos' || 'active'}">
       My Repos
       <Chip>{$gitHubRepos.length}</Chip>
     </a>
@@ -76,30 +86,17 @@
       Starred
       <Chip>{$gitHubStars.length}</Chip>
     </a>
-
-    <a
-      href="/"
-      on:click|preventDefault={() => updateRoute('/recent')}
-      class="link--plain {route !== '/recent' || 'active'}">
-      Recent Work
-    </a>
   </nav>
 
-  {#if $gitHubRepos.length}
-    {#if route === '/'}
-      <GitHubRepos />
-    {/if}
+  {#if route === '/' || route.includes('/recent')}
+    <Blog />
+  {/if}
 
-    {#if route === '/stars'}
-      <GitHubStars />
-    {/if}
+  {#if route === '/repos'}
+    <GitHubRepos />
+  {/if}
 
-    {#if route === '/recent'}
-      <Blog />
-    {/if}
-  {:else}
-    {#each new Array(7) as item}
-      <Placeholder />
-    {/each}
+  {#if route === '/stars'}
+    <GitHubStars />
   {/if}
 </div>
