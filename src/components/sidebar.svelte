@@ -2,6 +2,7 @@
   import dayjs from 'dayjs'
   import Divider from './divider.svelte'
 
+  import relativeTime from 'dayjs/plugin/relativeTime'
   dayjs.extend(relativeTime)
 </script>
 
@@ -149,7 +150,7 @@
       Hectare Agritech
     </a>
     <span class="company-role">Front End Lead Developer</span>
-    <span class="company-time">{dayjs().toNow(true)} months</span>
+    <span class="company-time">{dayjs('2019-04-28').toNow(true)}</span>
   </p>
 
   <p class="company">
