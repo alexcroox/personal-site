@@ -1,6 +1,8 @@
 <script>
   import dayjs from 'dayjs'
   import Divider from './divider.svelte'
+
+  dayjs.extend(relativeTime)
 </script>
 
 <style>
@@ -147,7 +149,7 @@
       Hectare Agritech
     </a>
     <span class="company-role">Front End Lead Developer</span>
-    <span class="company-time">{dayjs().diff(dayjs('2019-05-01'), 'month')} months</span>
+    <span class="company-time">{dayjs().toNow(true)} months</span>
   </p>
 
   <p class="company">
