@@ -144,13 +144,21 @@
   <Divider />
 
   <h3>Organisations</h3>
+  
+  <p class="company">
+    <a href="https://www.soilassociation.org/" target="_blank" rel="noopener noreferrer" class="company-name link--plain">
+      Soil Association
+    </a>
+    <span class="company-role">Lead Engineer</span>
+    <span class="company-time">{dayjs('2022-07-01').toNow(true)}</span>
+  </p>
 
   <p class="company">
     <a href="https://hectare.farm" target="_blank" rel="noopener noreferrer" class="company-name link--plain">
       Hectare Agritech
     </a>
     <span class="company-role">Front End Lead Developer</span>
-    <span class="company-time">{dayjs('2019-04-28').toNow(true)}</span>
+    <span class="company-time">3 years 2 months</span>
   </p>
 
   <p class="company">
