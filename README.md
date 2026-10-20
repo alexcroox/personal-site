@@ -26,6 +26,8 @@ npm run dev
 
 ## Deploy
 
+Pushes to `main` deploy automatically through Cloudflare Workers Builds. To deploy by hand:
+
 ```bash
 npm run deploy
 ```
