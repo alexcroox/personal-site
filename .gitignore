@@ -1,4 +1,4 @@
+node_modules/
+.wrangler/
+.claude/
 .DS_Store
-node_modules
-public/bundle.*
-.vscode

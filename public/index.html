@@ -1,26 +1,318 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en-GB">
   <head>
-    <meta charset="utf8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Alex Crooks - Web Developer</title>
-    <meta name="description" content="Alex Crooks is a web developer from Hampshire, UK" />
+    <title>Alex Crooks · Product Engineer</title>
+    <meta name="description" content="Alex Crooks is a product engineer from Hampshire, UK, turning loose ideas into production-ready platforms for 18 years." />
+    <meta name="theme-color" content="#05060a" />
+    <meta name="color-scheme" content="dark" />
 
-    <meta property="og:title" content="Alex Crooks - Web Developer" />
+    <meta property="og:title" content="Alex Crooks · Product Engineer" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://alexcrooks.me/images/avatar.jpg" />
     <meta property="og:site_name" content="Alex Crooks" />
-    <meta property="og:url" content="http://alexcrooks.me/" />
-    <meta property="og:description" content="Alex Crooks is a web developer from Hampshire, UK" />
+    <meta property="og:url" content="https://alexcrooks.me/" />
+    <meta property="og:description" content="Product engineer from Hampshire, UK. Founder of AAC Digital." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@alexcroox" />
 
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="stylesheet" href="/normalise.css" />
-    <link rel="stylesheet" href="/global.css" />
-    <link rel="stylesheet" href="/bundle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/main.js" defer></script>
   </head>
 
   <body>
-    <script src="/bundle.js"></script>
+    <canvas id="field" aria-hidden="true"></canvas>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="nav">
+      <a class="nav__logo" href="#top" aria-label="Alex Crooks, home">
+        <span class="nav__mark">ac</span><span class="nav__cursor">_</span>
+      </a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="#work">Work</a>
+        <a href="#open-source">Open source</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav__clock mono" aria-label="Local time in Hampshire">
+        <span class="pulse" aria-hidden="true"></span>
+        <span>HANTS, UK</span>
+        <time id="clock">--:--:--</time>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero__aura" aria-hidden="true"></div>
+
+        <div class="hero__id">
+          <div class="avatar">
+            <img src="/images/avatar.jpg" alt="Alex Crooks" width="400" height="400" />
+            <span class="avatar__ring" aria-hidden="true"></span>
+          </div>
+          <div class="mono hero__handle">
+            <span>@alexcroox</span>
+            <span class="dim">/</span>
+            <span>Hampshire, UK</span>
+          </div>
+        </div>
+
+        <p class="eyebrow mono"><span class="accent">&gt;</span> product_engineer --since 2008</p>
+        <h1 class="hero__name" data-scramble>Alex Crooks</h1>
+
+        <p class="hero__lede">
+          Turning loose ideas into production-ready platforms for <span class="hl">18 years</span>.
+          Founder of <a href="#aac">AAC Digital</a>, building web and mobile products from the south of England.
+        </p>
+
+        <ul class="stack mono" aria-label="Favourite stack">
+          <li>Nuxt 4</li>
+          <li>Postgres</li>
+          <li>Capacitor</li>
+          <li>Cloudflare</li>
+        </ul>
+
+        <ul class="links">
+          <li>
+            <a class="link-chip" href="mailto:alexcrooks@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Zm1.8.3 7.2 5.6 7.2-5.6" /></svg>
+              alexcrooks@gmail.com
+            </a>
+          </li>
+          <li>
+            <a class="link-chip" href="https://github.com/alexcroox" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" /></svg>
+              github.com/alexcroox
+            </a>
+          </li>
+          <li>
+            <a class="link-chip" href="https://www.linkedin.com/in/alexcrooks/" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM8 10.5V16M8 7.8v.2M12 16v-3.2c0-1.4 1-2.3 2.2-2.3s2 .9 2 2.3V16M12 10.5V16" /></svg>
+              linkedin.com/in/alexcrooks
+            </a>
+          </li>
+          <li>
+            <a class="link-chip" href="https://x.com/alexcroox" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4 4 20" /></svg>
+              x.com/alexcroox
+            </a>
+          </li>
+        </ul>
+
+        <div class="activity">
+          <div class="activity__years">
+            <span class="activity__label mono">Years shipping</span>
+            <span class="activity__big">18<span class="accent">+</span></span>
+          </div>
+
+          <figure class="activity__chart">
+            <figcaption class="activity__head mono">
+              <span class="activity__label">
+                <a href="https://github.com/alexcroox" target="_blank" rel="noopener noreferrer">GitHub contributions</a> · last <span id="activity-span">12 months</span>
+              </span>
+              <span class="activity__totals">
+                <span><b id="activity-total">2,051</b> total</span>
+                <span><b id="activity-avg">39</b> / week</span>
+                <span>peak <b id="activity-peak">134</b></span>
+              </span>
+            </figcaption>
+            <div class="activity__plot" id="activity-plot">
+              <div class="activity__grid" id="activity-grid" role="img" aria-label="GitHub contribution calendar for the last 12 months"></div>
+              <div class="activity__bars" id="activity-bars" aria-hidden="true"></div>
+              <span class="activity__scan" id="activity-scan" aria-hidden="true"></span>
+            </div>
+            <p class="activity__readout mono" id="activity-readout"><span class="accent">▸</span> scanning github.com/alexcroox…</p>
+          </figure>
+        </div>
+
+        <a class="scroll-cue mono" href="#work" aria-label="Scroll to work">
+          <span>scroll</span><span class="scroll-cue__line" aria-hidden="true"></span>
+        </a>
+      </section>
+
+      <!-- Lead project -->
+      <section id="work" class="section">
+        <header class="section__head">
+          <p class="mono section__index"><span class="accent">01</span> / Work</p>
+          <h2 class="section__title">Things I've built &amp; run</h2>
+        </header>
+
+        <article id="aac" class="feature glow">
+          <div class="feature__copy">
+            <p class="mono tag tag--accent">My studio · Ltd company</p>
+            <h3 class="feature__title">AAC Digital</h3>
+            <p class="feature__lede">Software that fits your business. Not the other way round.</p>
+            <p>
+              An independent software studio in East Hampshire. AAC Digital brings spreadsheets, orders,
+              inboxes, chats and third-party apps together into one web and mobile platform built around
+              a business, then stays on to support and improve it for years to come.
+            </p>
+            <ul class="chips mono">
+              <li>Web apps</li>
+              <li>iOS &amp; Android</li>
+              <li>Automation &amp; integrations</li>
+            </ul>
+            <a class="btn" href="https://aac-digital.com" target="_blank" rel="noopener noreferrer">
+              Visit aac-digital.com
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            </a>
+          </div>
+          <a class="frame frame--lg" href="https://aac-digital.com" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+            <span class="frame__bar mono"><i></i><i></i><i></i><span>aac-digital.com</span></span>
+            <img src="/assets/projects/aac-digital.jpg" alt="" width="1200" height="750" loading="lazy" />
+          </a>
+        </article>
+
+        <div class="projects">
+          <article class="project glow">
+            <a class="frame" href="https://pawpaddock.co.uk" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <span class="frame__bar mono"><i></i><i></i><i></i><span>pawpaddock.co.uk</span></span>
+              <img src="/assets/projects/pawpaddock.jpg" alt="" width="800" height="500" loading="lazy" />
+            </a>
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="status status--live mono">Live</span>
+                <span class="mono dim">Web · iOS · Android</span>
+              </div>
+              <h3><a href="https://pawpaddock.co.uk" target="_blank" rel="noopener noreferrer">Paw Paddock</a></h3>
+              <p>Booking platform for exclusive, enclosed and secure dog walking paddocks across the south coast. Find your nearest field, book a slot and let your dog off the lead.</p>
+              <ul class="project__links mono">
+                <li><a href="https://pawpaddock.co.uk" target="_blank" rel="noopener noreferrer">Website ↗</a></li>
+                <li><a href="https://apps.apple.com/app/paw-paddock/id6444458645" target="_blank" rel="noopener noreferrer">App Store ↗</a></li>
+                <li><a href="https://play.google.com/store/apps/details?id=dog.pawpaddock.woof" target="_blank" rel="noopener noreferrer">Google Play ↗</a></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project glow">
+            <a class="frame" href="https://first.cards" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <span class="frame__bar mono"><i></i><i></i><i></i><span>first.cards</span></span>
+              <img src="/assets/projects/first.jpg" alt="" width="1200" height="750" loading="lazy" />
+            </a>
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="status status--soon mono">Coming soon</span>
+                <span class="mono dim">iOS · Android</span>
+              </div>
+              <h3><a href="https://first.cards" target="_blank" rel="noopener noreferrer">First Cards</a></h3>
+              <p>The Pokémon card app made for kids. Scan a card, tap any part to learn what it means, then sort collections and plan swaps with friends. No ads, no accounts, no card prices.</p>
+              <ul class="project__links mono">
+                <li><a href="https://first.cards" target="_blank" rel="noopener noreferrer">Website ↗</a></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project glow">
+            <a class="frame" href="https://whatsagent.ai" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <span class="frame__bar mono"><i></i><i></i><i></i><span>whatsagent.ai</span></span>
+              <img src="/assets/projects/whatsagent.jpg" alt="" width="1200" height="750" loading="lazy" />
+            </a>
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="status status--live mono">Live</span>
+                <span class="mono dim">AI · WhatsApp</span>
+              </div>
+              <h3><a href="https://whatsagent.ai" target="_blank" rel="noopener noreferrer">WhatsAgent</a></h3>
+              <p>Frictionless onboarding on WhatsApp. AI agents meet customers where they already are and onboard them quickly and on brand, with no apps to download and no accounts to create.</p>
+              <ul class="project__links mono">
+                <li><a href="https://whatsagent.ai" target="_blank" rel="noopener noreferrer">Website ↗</a></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project glow">
+            <a class="frame" href="https://crash-restart.app" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <span class="frame__bar mono"><i></i><i></i><i></i><span>crash-restart.app</span></span>
+              <img src="/assets/projects/crash-restart.jpg" alt="" width="1200" height="750" loading="lazy" />
+            </a>
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="status status--soon mono">Coming soon</span>
+                <span class="mono dim">macOS</span>
+              </div>
+              <h3><a href="https://crash-restart.app" target="_blank" rel="noopener noreferrer">Crash Restart</a></h3>
+              <p>A watchdog for always-on Macs. It relaunches crashed apps the moment they quit, keeping Plex, Jellyfin, Docker and the rest of a Mac mini home server running overnight.</p>
+              <ul class="project__links mono">
+                <li><a href="https://crash-restart.app" target="_blank" rel="noopener noreferrer">Website ↗</a></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Open source -->
+      <section id="open-source" class="section">
+        <header class="section__head section__head--row">
+          <div>
+            <p class="mono section__index"><span class="accent">02</span> / Open source</p>
+            <h2 class="section__title">Repos &amp; side quests</h2>
+          </div>
+          <div class="sort mono" role="group" aria-label="Sort repositories">
+            <button type="button" data-sort="recent" aria-pressed="true">Recent</button>
+            <button type="button" data-sort="stars" aria-pressed="false">★ Stars</button>
+          </div>
+        </header>
+
+        <ul id="repos" class="repos" aria-live="polite"></ul>
+
+        <a class="more mono" href="https://github.com/alexcroox?tab=repositories" target="_blank" rel="noopener noreferrer">
+          All repositories on GitHub ↗
+        </a>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="section">
+        <header class="section__head">
+          <p class="mono section__index"><span class="accent">03</span> / Experience</p>
+          <h2 class="section__title">Organisations</h2>
+        </header>
+
+        <ol class="timeline">
+          <li class="timeline__item">
+            <span class="timeline__node" aria-hidden="true"></span>
+            <div class="timeline__when mono"><span class="status status--live">Now</span> <span data-since="2025-06-01">1 year 4 months</span></div>
+            <h3 class="timeline__role">Head of Applications Engineering</h3>
+            <p class="timeline__org"><a href="https://hectare.farm" target="_blank" rel="noopener noreferrer">Hectare Agritech</a></p>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__node" aria-hidden="true"></span>
+            <div class="timeline__when mono">2 years 11 months</div>
+            <h3 class="timeline__role">Lead Engineer</h3>
+            <p class="timeline__org"><a href="https://www.soilassociation.org/" target="_blank" rel="noopener noreferrer">Soil Association</a></p>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__node" aria-hidden="true"></span>
+            <div class="timeline__when mono">3 years 2 months</div>
+            <h3 class="timeline__role">Front End Lead Developer</h3>
+            <p class="timeline__org"><a href="https://hectare.farm" target="_blank" rel="noopener noreferrer">Hectare Agritech</a></p>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__node" aria-hidden="true"></span>
+            <div class="timeline__when mono">10 years 5 months</div>
+            <h3 class="timeline__role">Lead Developer</h3>
+            <p class="timeline__org"><a href="https://sidigital.co" target="_blank" rel="noopener noreferrer">Si digital</a></p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section contact">
+        <p class="mono section__index"><span class="accent">04</span> / Contact</p>
+        <h2 class="contact__title">Got a loose idea?<br /><span class="grad">Let's make it real.</span></h2>
+        <a class="contact__mail" href="mailto:alexcrooks@gmail.com">alexcrooks@gmail.com</a>
+      </section>
+    </main>
+
+    <footer class="footer mono">
+      <span>© <span id="year">2026</span> Alex Crooks</span>
+      <a href="https://github.com/alexcroox/personal-site" target="_blank" rel="noopener noreferrer">This site is open source ↗</a>
+    </footer>
   </body>
 </html>

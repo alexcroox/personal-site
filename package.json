@@ -1,31 +1,11 @@
 {
-  "name": "alex-crooks",
-  "description": "Built with Svelete",
-  "version": "1.0.0",
-  "devDependencies": {
-    "npm-run-all": "^4.1.5",
-    "rollup": "^1.23.1",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-livereload": "^1.0.4",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-sizes": "^0.5.1",
-    "rollup-plugin-svelte": "^5.1.0",
-    "rollup-plugin-terser": "^5.1.2",
-    "svelte": "^3.12.1"
-  },
-  "dependencies": {
-    "dayjs": "^1.8.16",
-    "lodash-es": "^4.17.15",
-    "marked": "^0.7.0",
-    "s-ago": "^2.1.0",
-    "sirv-cli": "^0.4.4"
-  },
+  "name": "personal-site",
+  "private": true,
   "scripts": {
-    "build": "rollup -c",
-    "autobuild": "rollup -c -w",
-    "dev": "run-p start:dev autobuild",
-    "start": "sirv public --single",
-    "start:dev": "sirv public --single --dev",
-    "deploy:live": "rollup -c && aws s3 sync public/ s3://alexcrooks --profile reddit-saved-images"
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
   }
 }

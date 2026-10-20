@@ -1,0 +1,172 @@
+[
+ {
+  "name": "history-domain-scrubber",
+  "description": "Automatically and continually clears Chrome history for any domains you setup",
+  "html_url": "https://github.com/alexcroox/history-domain-scrubber",
+  "homepage": "",
+  "language": "HTML",
+  "stargazers_count": 10,
+  "forks_count": 1,
+  "pushed_at": "2019-05-17T11:55:04Z"
+ },
+ {
+  "name": "home-assistant-portsmouth-water",
+  "description": "Home Assistant custom integration for Portsmouth Water daily water usage in litres",
+  "html_url": "https://github.com/alexcroox/home-assistant-portsmouth-water",
+  "homepage": null,
+  "language": "Python",
+  "stargazers_count": 0,
+  "forks_count": 0,
+  "pushed_at": "2026-10-07T10:17:16Z"
+ },
+ {
+  "name": "jellyfin-plugin-fine-zoom",
+  "description": null,
+  "html_url": "https://github.com/alexcroox/jellyfin-plugin-fine-zoom",
+  "homepage": null,
+  "language": "JavaScript",
+  "stargazers_count": 0,
+  "forks_count": 0,
+  "pushed_at": "2026-10-06T12:33:52Z"
+ },
+ {
+  "name": "jellyfin-plugin-next-airing",
+  "description": "Show the next announced episode on Jellyfin 12 series overview pages",
+  "html_url": "https://github.com/alexcroox/jellyfin-plugin-next-airing",
+  "homepage": null,
+  "language": "C#",
+  "stargazers_count": 3,
+  "forks_count": 0,
+  "pushed_at": "2026-09-10T22:49:42Z"
+ },
+ {
+  "name": "battlebit-stats",
+  "description": "Stats, maps and information about the BattleBit Remastered game",
+  "html_url": "https://github.com/alexcroox/battlebit-stats",
+  "homepage": "https://battlebitstats.com",
+  "language": "Vue",
+  "stargazers_count": 15,
+  "forks_count": 4,
+  "pushed_at": "2026-02-06T09:07:34Z"
+ },
+ {
+  "name": "streamdeck-http-alive",
+  "description": "Monitor a URL from your Stream Deck and be alerted if it goes down",
+  "html_url": "https://github.com/alexcroox/streamdeck-http-alive",
+  "homepage": "",
+  "language": "TypeScript",
+  "stargazers_count": 1,
+  "forks_count": 0,
+  "pushed_at": "2025-03-25T21:54:05Z"
+ },
+ {
+  "name": "reddit-saved-images",
+  "description": "View your saved Reddit image posts in a grid",
+  "html_url": "https://github.com/alexcroox/reddit-saved-images",
+  "homepage": "https://redditsaved.com",
+  "language": "JavaScript",
+  "stargazers_count": 3,
+  "forks_count": 0,
+  "pushed_at": "2024-10-25T04:21:27Z"
+ },
+ {
+  "name": "R3-Poi-Finder",
+  "description": "Export POI for maps to be used in R3-Web",
+  "html_url": "https://github.com/alexcroox/R3-Poi-Finder",
+  "homepage": "",
+  "language": "SQF",
+  "stargazers_count": 4,
+  "forks_count": 1,
+  "pushed_at": "2017-01-12T19:27:36Z"
+ },
+ {
+  "name": "docker-lighthouse",
+  "description": "Dockerfile for Lighthouse automated testing and reporting",
+  "html_url": "https://github.com/alexcroox/docker-lighthouse",
+  "homepage": "https://alexcrooks.me/recent/2019-10-18/automated-lighthouse-performance-testing",
+  "language": "Dockerfile",
+  "stargazers_count": 1,
+  "forks_count": 0,
+  "pushed_at": "2019-11-21T17:57:33Z"
+ },
+ {
+  "name": "chrome-tab-auto-reloader",
+  "description": "Auto reload a tab every 30 seconds to keep your session alive while you are AFK",
+  "html_url": "https://github.com/alexcroox/chrome-tab-auto-reloader",
+  "homepage": null,
+  "language": "HTML",
+  "stargazers_count": 5,
+  "forks_count": 1,
+  "pushed_at": "2019-06-28T21:31:48Z"
+ },
+ {
+  "name": "docker-ci-build-image",
+  "description": "Docker image for building assets before deployment",
+  "html_url": "https://github.com/alexcroox/docker-ci-build-image",
+  "homepage": null,
+  "language": "Dockerfile",
+  "stargazers_count": 1,
+  "forks_count": 1,
+  "pushed_at": "2019-01-08T08:19:49Z"
+ },
+ {
+  "name": "docker-serverless-build",
+  "description": null,
+  "html_url": "https://github.com/alexcroox/docker-serverless-build",
+  "homepage": null,
+  "language": "Dockerfile",
+  "stargazers_count": 1,
+  "forks_count": 0,
+  "pushed_at": "2021-02-24T08:59:21Z"
+ },
+ {
+  "name": "reddit-hide-all",
+  "description": "Hide all Reddit posts in the current tab. Get fresh content on your Reddit homepage immediately.",
+  "html_url": "https://github.com/alexcroox/reddit-hide-all",
+  "homepage": "",
+  "language": "JavaScript",
+  "stargazers_count": 1,
+  "forks_count": 1,
+  "pushed_at": "2018-06-26T11:23:19Z"
+ },
+ {
+  "name": "docker-android-fastlane",
+  "description": "Dockerfile for automated Android app builds using Fastlane",
+  "html_url": "https://github.com/alexcroox/docker-android-fastlane",
+  "homepage": null,
+  "language": "Dockerfile",
+  "stargazers_count": 1,
+  "forks_count": 0,
+  "pushed_at": "2021-05-27T17:41:13Z"
+ },
+ {
+  "name": "jira-timer-menubar-chrome-extension",
+  "description": "This Chrome extension adds a Start Timing button to the JIRA web ui.",
+  "html_url": "https://github.com/alexcroox/jira-timer-menubar-chrome-extension",
+  "homepage": null,
+  "language": "JavaScript",
+  "stargazers_count": 3,
+  "forks_count": 0,
+  "pushed_at": "2019-02-19T10:31:56Z"
+ },
+ {
+  "name": "personal-site",
+  "description": "https://alexcrooks.me built with Svelte",
+  "html_url": "https://github.com/alexcroox/personal-site",
+  "homepage": "",
+  "language": "JavaScript",
+  "stargazers_count": 5,
+  "forks_count": 0,
+  "pushed_at": "2023-05-06T05:53:43Z"
+ },
+ {
+  "name": "R3-Tile-Generator",
+  "description": "Generate R3 tiles",
+  "html_url": "https://github.com/alexcroox/R3-Tile-Generator",
+  "homepage": null,
+  "language": "Python",
+  "stargazers_count": 6,
+  "forks_count": 2,
+  "pushed_at": "2016-12-28T23:08:45Z"
+ }
+]
