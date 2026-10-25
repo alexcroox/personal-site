@@ -244,7 +244,7 @@
               </h3>
               ${
                 homepage
-                  ? `<a class="repo__home" href="${escapeHtml(homepage)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(repo.name)} website"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>`
+                  ? `<a class="repo__home" href="${escapeHtml(homepage)}" target="_blank" rel="noopener" aria-label="${escapeHtml(repo.name)} website"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>`
                   : ""
               }
             </div>
