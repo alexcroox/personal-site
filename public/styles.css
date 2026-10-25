@@ -1280,8 +1280,16 @@ p {
     padding-top: 12px;
   }
 
+  html {
+    scroll-padding-top: 16px;
+  }
+
+  .nav {
+    display: none;
+  }
+
   .hero {
-    padding-top: 120px;
+    padding-top: 48px;
   }
 
   .scroll-cue {
