@@ -961,6 +961,13 @@ p {
   gap: 14px;
 }
 
+.repos__status {
+  grid-column: 1 / -1;
+  padding: 40px 0;
+  color: var(--muted);
+  text-align: center;
+}
+
 .repo {
   display: flex;
   flex-direction: column;

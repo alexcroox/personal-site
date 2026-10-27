@@ -1,8 +1,10 @@
 (() => {
   const GITHUB_USER = "alexcroox";
   const HIDDEN_REPOS = new Set(["R3-Update-Test", "phonegap-localstorage-test"]);
-  const CACHE_KEY = "gh-repos-v1";
+  const REPOS_CACHE_KEY = "gh-repos-v1";
+  const STARRED_CACHE_KEY = "gh-starred-v1";
   const CACHE_TTL = 60 * 60 * 1000;
+  const STARRED_LIMIT = 18;
 
   const LANG_COLOURS = {
     JavaScript: "#f1e05a",
@@ -199,9 +201,13 @@
   // ---------- GitHub repos ----------
 
   const list = document.getElementById("repos");
-  const sortButtons = document.querySelectorAll("[data-sort]");
+  const tabButtons = document.querySelectorAll("[data-tab]");
+  const moreLink = document.getElementById("repos-more");
+  const compactNumber = new Intl.NumberFormat("en-GB", { notation: "compact" });
   let repos = [];
-  let sortBy = "recent";
+  let starred = null;
+  let starredRequest = null;
+  let tab = "recent";
 
   const relative = new Intl.RelativeTimeFormat("en-GB", { numeric: "auto" });
 
@@ -225,72 +231,91 @@
     return String(str ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   }
 
-  function render() {
-    const sorted = [...repos].sort((a, b) =>
-      sortBy === "stars"
-        ? b.stargazers_count - a.stargazers_count || new Date(b.pushed_at) - new Date(a.pushed_at)
-        : new Date(b.pushed_at) - new Date(a.pushed_at)
-    );
+  // my repos by latest push, or starred repos by when I starred them
+  function currentItems() {
+    if (tab === "starred") {
+      return [...starred]
+        .sort((a, b) => new Date(b.starred_at) - new Date(a.starred_at))
+        .map((s) => {
+          const [owner, name] = s.full_name.split("/");
+          return { ...s, owner, name, own: false, when: `starred ${timeAgo(s.starred_at)}` };
+        });
+    }
+    return [...repos]
+      .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+      .map((r) => ({ ...r, owner: GITHUB_USER, own: true, when: timeAgo(r.pushed_at) }));
+  }
 
-    list.innerHTML = sorted
+  function render() {
+    moreLink.href = `https://github.com/${GITHUB_USER}?tab=${tab === "starred" ? "stars" : "repositories"}`;
+    moreLink.textContent = tab === "starred" ? "All starred repos on GitHub ↗" : "All repositories on GitHub ↗";
+
+    list.innerHTML = currentItems()
       .map((repo, i) => {
         const colour = LANG_COLOURS[repo.language] || "#8b90a0";
         const homepage = repo.homepage && /^https?:\/\//.test(repo.homepage) ? repo.homepage : null;
+        // only my own sites get the referrer, so they can see traffic from here
+        const homeRel = repo.own ? "noopener" : "noopener noreferrer";
         return `
           <li class="repo glow" style="--i:${i}">
             <div class="repo__top">
               <h3 class="repo__name">
-                <a href="${escapeHtml(repo.html_url)}" target="_blank" rel="noopener noreferrer"><span class="dim">${GITHUB_USER}/</span>${escapeHtml(repo.name)}</a>
+                <a href="${escapeHtml(repo.html_url)}" target="_blank" rel="noopener noreferrer"><span class="dim">${escapeHtml(repo.owner)}/</span>${escapeHtml(repo.name)}</a>
               </h3>
               ${
                 homepage
-                  ? `<a class="repo__home" href="${escapeHtml(homepage)}" target="_blank" rel="noopener" aria-label="${escapeHtml(repo.name)} website"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>`
+                  ? `<a class="repo__home" href="${escapeHtml(homepage)}" target="_blank" rel="${homeRel}" aria-label="${escapeHtml(repo.name)} website"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>`
                   : ""
               }
             </div>
             <p class="repo__desc">${escapeHtml(repo.description || "No description, just code.")}</p>
             <div class="repo__meta">
               ${repo.language ? `<span><i class="lang-dot" style="--c:${colour}"></i>${escapeHtml(repo.language)}</span>` : ""}
-              <span aria-label="${repo.stargazers_count} stars">★ ${repo.stargazers_count}</span>
-              ${repo.forks_count ? `<span aria-label="${repo.forks_count} forks">⑂ ${repo.forks_count}</span>` : ""}
-              <span>${timeAgo(repo.pushed_at)}</span>
+              <span aria-label="${repo.stargazers_count} stars">★ ${compactNumber.format(repo.stargazers_count)}</span>
+              ${repo.forks_count ? `<span aria-label="${repo.forks_count} forks">⑂ ${compactNumber.format(repo.forks_count)}</span>` : ""}
+              <span>${repo.when}</span>
             </div>
           </li>`;
       })
       .join("");
   }
 
-  sortButtons.forEach((button) =>
-    button.addEventListener("click", () => {
-      sortBy = button.dataset.sort;
-      sortButtons.forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+  tabButtons.forEach((button) =>
+    button.addEventListener("click", async () => {
+      tab = button.dataset.tab;
+      tabButtons.forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+      if (tab === "starred" && !starred) {
+        list.innerHTML = '<li class="repos__status mono">Loading starred repos…</li>';
+        starred = await (starredRequest ??= loadStarred());
+        if (tab !== "starred") return;
+      }
       render();
     })
   );
 
-  function readCache() {
+  function readCache(key) {
     try {
-      const cached = JSON.parse(sessionStorage.getItem(CACHE_KEY));
+      const cached = JSON.parse(sessionStorage.getItem(key));
       if (cached && Date.now() - cached.at < CACHE_TTL) return cached.repos;
     } catch {}
     return null;
   }
 
-  function writeCache(data) {
+  function writeCache(key, data) {
     try {
-      sessionStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), repos: data }));
+      sessionStorage.setItem(key, JSON.stringify({ at: Date.now(), repos: data }));
     } catch {}
   }
 
   async function loadRepos() {
-    const cached = readCache();
+    const cached = readCache(REPOS_CACHE_KEY);
     if (cached) return cached;
 
     try {
       const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&type=owner&sort=pushed`);
       if (!res.ok) throw new Error(`GitHub responded ${res.status}`);
       const live = (await res.json()).filter((r) => !r.fork && !r.archived && !HIDDEN_REPOS.has(r.name));
-      writeCache(live);
+      writeCache(REPOS_CACHE_KEY, live);
       return live;
     } catch {
       // rate limited or offline: fall back to the snapshot shipped with the site
@@ -299,9 +324,37 @@
     }
   }
 
+  // fetched only when the Starred tab is first opened, to spare the API rate limit
+  async function loadStarred() {
+    const cached = readCache(STARRED_CACHE_KEY);
+    if (cached) return cached;
+
+    try {
+      const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/starred?per_page=${STARRED_LIMIT}&sort=created&direction=desc`, {
+        headers: { Accept: "application/vnd.github.star+json" },
+      });
+      if (!res.ok) throw new Error(`GitHub responded ${res.status}`);
+      const live = (await res.json()).map(({ starred_at, repo }) => ({
+        starred_at,
+        full_name: repo.full_name,
+        html_url: repo.html_url,
+        homepage: repo.homepage,
+        description: repo.description,
+        language: repo.language,
+        stargazers_count: repo.stargazers_count,
+        forks_count: repo.forks_count,
+      }));
+      writeCache(STARRED_CACHE_KEY, live);
+      return live;
+    } catch {
+      const res = await fetch("/assets/starred.json");
+      return res.json();
+    }
+  }
+
   loadRepos().then((data) => {
     repos = data;
-    render();
+    if (tab === "recent") render();
   });
 
   // ---------- Contribution activity ----------

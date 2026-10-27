@@ -1,0 +1,182 @@
+[
+ {
+  "starred_at": "2026-10-02T22:00:05Z",
+  "full_name": "CircuitLord/CircuitLordVRModInstaller",
+  "html_url": "https://github.com/CircuitLord/CircuitLordVRModInstaller",
+  "homepage": "",
+  "description": "One-click installer for Big Walk VR and Titanfall 2 VR",
+  "language": "C#",
+  "stargazers_count": 1419,
+  "forks_count": 27
+ },
+ {
+  "starred_at": "2026-09-17T15:18:46Z",
+  "full_name": "cloudflare/security-audit-skill",
+  "html_url": "https://github.com/cloudflare/security-audit-skill",
+  "homepage": "",
+  "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
+  "language": "JavaScript",
+  "stargazers_count": 50051,
+  "forks_count": 3141
+ },
+ {
+  "starred_at": "2026-09-08T12:03:42Z",
+  "full_name": "streamyfin/streamyfin",
+  "html_url": "https://github.com/streamyfin/streamyfin",
+  "homepage": "https://streamyfin.app/",
+  "description": "A modern Jellyfin client built with Expo",
+  "language": "TypeScript",
+  "stargazers_count": 5313,
+  "forks_count": 301
+ },
+ {
+  "starred_at": "2026-08-28T14:41:55Z",
+  "full_name": "espressif/esp-idf",
+  "html_url": "https://github.com/espressif/esp-idf",
+  "homepage": "",
+  "description": "Espressif IoT Development Framework. Official development framework for Espressif SoCs.",
+  "language": "C",
+  "stargazers_count": 19361,
+  "forks_count": 8571
+ },
+ {
+  "starred_at": "2026-08-21T09:39:07Z",
+  "full_name": "dmmulroy/anti-slop",
+  "html_url": "https://github.com/dmmulroy/anti-slop",
+  "homepage": null,
+  "description": "Opinionated Oxlint rules for rejecting low-evidence TypeScript and JavaScript patterns",
+  "language": "TypeScript",
+  "stargazers_count": 5715,
+  "forks_count": 155
+ },
+ {
+  "starred_at": "2026-08-16T08:17:44Z",
+  "full_name": "comarkdown/comark-webext",
+  "html_url": "https://github.com/comarkdown/comark-webext",
+  "homepage": "https://chromewebstore.google.com/detail/comark-for-github-gitlab/mbbnjnblfplfjkakjfjkhhefhcdnhcin",
+  "description": "Properly render Markdown with components and attributes syntax on GitHub.",
+  "language": "TypeScript",
+  "stargazers_count": 14,
+  "forks_count": 1
+ },
+ {
+  "starred_at": "2026-08-10T23:01:09Z",
+  "full_name": "jplakon/CallOfDuty4_VR",
+  "html_url": "https://github.com/jplakon/CallOfDuty4_VR",
+  "homepage": null,
+  "description": "Call of Duty 4 VR!",
+  "language": "C++",
+  "stargazers_count": 188,
+  "forks_count": 7
+ },
+ {
+  "starred_at": "2026-08-10T22:37:16Z",
+  "full_name": "productdevbook/nabiz",
+  "html_url": "https://github.com/productdevbook/nabiz",
+  "homepage": null,
+  "description": "A status page that keeps beating when your server does not \u2014 one Cloudflare Worker, or one container you own. Astro, a probe a minute, D1 or SQLite.",
+  "language": "TypeScript",
+  "stargazers_count": 39,
+  "forks_count": 3
+ },
+ {
+  "starred_at": "2026-08-02T21:52:44Z",
+  "full_name": "firecrawl/pdf-inspector",
+  "html_url": "https://github.com/firecrawl/pdf-inspector",
+  "homepage": "https://firecrawl.github.io/pdf-inspector/",
+  "description": "Fast Rust library for PDF inspection, classification, and text extraction. Intelligently detects scanned vs text-based PDFs to enable smart routing decisions.",
+  "language": "Rust",
+  "stargazers_count": 19750,
+  "forks_count": 1330
+ },
+ {
+  "starred_at": "2026-06-26T16:06:13Z",
+  "full_name": "fayazara/Screendrop",
+  "html_url": "https://github.com/fayazara/Screendrop",
+  "homepage": "",
+  "description": "A beautiful screenshot + screen recording + Loom alternative - all native, self hostable and free.",
+  "language": "Swift",
+  "stargazers_count": 2325,
+  "forks_count": 129
+ },
+ {
+  "starred_at": "2026-06-08T22:20:14Z",
+  "full_name": "Kedar200/Link-preview",
+  "html_url": "https://github.com/Kedar200/Link-preview",
+  "homepage": "https://getlinkpeek.com/",
+  "description": null,
+  "language": "TypeScript",
+  "stargazers_count": 16,
+  "forks_count": 1
+ },
+ {
+  "starred_at": "2026-05-28T14:01:57Z",
+  "full_name": "acoyfellow/vibe-cdn",
+  "html_url": "https://github.com/acoyfellow/vibe-cdn",
+  "homepage": "https://vibe-cdn.coey.dev/",
+  "description": "A Cloudflare game stack for heavy browser games. R2 assets, Worker CDN, Durable Object rooms, D1 scores, KV saves.",
+  "language": "TypeScript",
+  "stargazers_count": 8,
+  "forks_count": 3
+ },
+ {
+  "starred_at": "2026-05-15T15:09:54Z",
+  "full_name": "VladChernyak/vue-player",
+  "html_url": "https://github.com/VladChernyak/vue-player",
+  "homepage": "https://vue-player.vercel.app",
+  "description": "Feature-rich Vue 3 video player with HLS adaptive streaming, chapters, subtitles, thumbnail previews and Picture-in-Picture \u2014 out of the box.",
+  "language": "Vue",
+  "stargazers_count": 32,
+  "forks_count": 2
+ },
+ {
+  "starred_at": "2026-05-13T18:15:54Z",
+  "full_name": "MrNorm/ha-vant-waste",
+  "html_url": "https://github.com/MrNorm/ha-vant-waste",
+  "homepage": null,
+  "description": null,
+  "language": "Python",
+  "stargazers_count": 1,
+  "forks_count": 0
+ },
+ {
+  "starred_at": "2026-05-11T12:03:42Z",
+  "full_name": "thaw-app/Thaw",
+  "html_url": "https://github.com/thaw-app/Thaw",
+  "homepage": "https://www.getthaw.app",
+  "description": "The open source menu bar manager",
+  "language": "Swift",
+  "stargazers_count": 12333,
+  "forks_count": 323
+ },
+ {
+  "starred_at": "2026-04-21T18:53:47Z",
+  "full_name": "peakoss/anti-slop",
+  "html_url": "https://github.com/peakoss/anti-slop",
+  "homepage": "",
+  "description": "A GitHub action that detects and automatically closes low-quality and AI slop PRs.",
+  "language": "TypeScript",
+  "stargazers_count": 849,
+  "forks_count": 23
+ },
+ {
+  "starred_at": "2026-04-20T13:30:51Z",
+  "full_name": "modem-dev/slop-scan",
+  "html_url": "https://github.com/modem-dev/slop-scan",
+  "homepage": "",
+  "description": "Detect AI code slop patterns in your repo",
+  "language": "TypeScript",
+  "stargazers_count": 325,
+  "forks_count": 20
+ },
+ {
+  "starred_at": "2026-04-12T21:35:12Z",
+  "full_name": "PRProd/HA-Firemote",
+  "html_url": "https://github.com/PRProd/HA-Firemote",
+  "homepage": "",
+  "description": "Apple TV, Amazon Fire TV, Chromecast, Homatics, NVIDIA Shield, onn., Roku, Xiaomi Mi, and Android TV remote control card for Home Assistant",
+  "language": null,
+  "stargazers_count": 1094,
+  "forks_count": 106
+ }
+]

@@ -272,15 +272,15 @@
             <p class="mono section__index"><span class="accent">02</span> / Open source</p>
             <h2 class="section__title">Repos &amp; side quests</h2>
           </div>
-          <div class="sort mono" role="group" aria-label="Sort repositories">
-            <button type="button" data-sort="recent" aria-pressed="true">Recent</button>
-            <button type="button" data-sort="stars" aria-pressed="false">★ Stars</button>
+          <div class="sort mono" role="group" aria-label="Repository list">
+            <button type="button" data-tab="recent" aria-pressed="true">Recent</button>
+            <button type="button" data-tab="starred" aria-pressed="false">★ Starred</button>
           </div>
         </header>
 
         <ul id="repos" class="repos" aria-live="polite"></ul>
 
-        <a class="more mono" href="https://github.com/alexcroox?tab=repositories" target="_blank" rel="noopener noreferrer">
+        <a class="more mono" id="repos-more" href="https://github.com/alexcroox?tab=repositories" target="_blank" rel="noopener noreferrer">
           All repositories on GitHub ↗
         </a>
       </section>
